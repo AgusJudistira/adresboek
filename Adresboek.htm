@@ -16,32 +16,40 @@
         </div>
     </div>
     
-    <div onclick="adres.recordToevoegen()" class="btn btn-info btn-lg">
-          <i class="glyphicon glyphicon-plus"></i> Adres toevoegen
+    <div id="btnRecordToevoegen">
+        <div onclick="adres.recordToevoegen()" class="btn btn-info btn-lg">
+              <i class="glyphicon glyphicon-plus"></i> Adres toevoegen
+        </div>
     </div>
     
     <div id="mutatieFormulier">
         <h3></h3>
-            
-        <p>Voornaam: <input type="text" name="voornaam" placeholder="voornaam" size="12">
-        Voorvoegs.: <input type="text" name="voorvoegsel" placeholder="voorvoegsel" size = "5">
-        Achternaam: <input type="text" name="achternaam" placeholder="achternaam"></p>
-        
-        <p>Telefoonnummer: <input type="tel" name="telefoonnummer" placeholder="0123456789"></p>
-        <p>Mobielnummer: <input type="tel" name="mobielnummer" placeholder="06123456789"></p>
-        <p>E-mail: <input type="email" name="email" placeholder="somebody@provider.nl"></p>
-        <p>Website: <input type="url" name="website" placeholder="www.website.nl"></p>
-        
-        <p>Straat: <input type="text" name="straat" placeholder="straat">
-            Huisnummer: <input type="text" name="huisnummer" placeholder="99A" size="7">
-        </p>
-        
-        <p>Postcode: <input type="text" name="postcode" placeholder="9999 XX" size="9">
-            Plaats: <input type="text" name="plaats" placeholder="stad"></p>
-        <p>Land: <input type="text" name="land" placeholder="land"></p>
-            
+        <form name="Formulier">
+            <p>Voornaam: <input type="text" name="voornaam" placeholder="voornaam" size="12" required>
+            Voorvoegs.: <input type="text" name="voorvoegsel" placeholder="voorvoegsel" size = "5">
+            Achternaam: <input type="text" name="achternaam" placeholder="achternaam" required></p>
+
+            <p>Telefoonnummer: <input type="tel" name="telefoonnummer" placeholder="0123456789"></p>
+            <p>Mobielnummer: <input type="tel" name="mobielnummer" placeholder="06123456789"></p>
+            <p>E-mail: <input type="email" name="email" placeholder="somebody@provider.nl"></p>
+            <p>Website: <input type="url" name="website" placeholder="www.website.nl"></p>
+            <p>Straat & huisnummer: <input type="text" name="straatlocatie" placeholder="straatnaam + nummer"></p>
+
+            <p>Postcode: <input type="text" name="postcode" placeholder="9999 XX" size="9">
+                Plaats: <input type="text" name="plaats" placeholder="stad"></p>
+            <p>Land: <input type="text" name="land" placeholder="land"></p>
+
+            <div id="formButtons">
+                <div onclick="adres.recordToevoegen()" class="btn btn-info btn-lg">
+                      <i class="glyphicon glyphicon-remove"></i>Annuleren
+                </div>
+                <div onclick="adres.inHTMLzetten()" class="btn btn-info btn-lg">
+                      <i class="glyphicon glyphicon-ok"></i>OK
+                </div>        
+            </div>
+        </form>
     </div>
-        
+    
     <script src="Adresboek.js"></script>
 </body>
 </html>

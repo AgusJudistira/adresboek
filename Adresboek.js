@@ -21,7 +21,7 @@ function AdresRecord() {
                             mobielnummer,
                             email,
                             website,
-                            straat,
+                            straatlocatie,
                             huisnummer,
                             postcode,
                             plaats,
@@ -33,7 +33,7 @@ function AdresRecord() {
         this.mobielnummer=mobielnummer;
         this.email=email;
         this.website=website;
-        this.straat=straat;
+        this.straatlocatie=straatlocatie;
         this.huisnummer=huisnummer;
         this.postcode=postcode;
         this.plaats=plaats;
@@ -44,6 +44,64 @@ function AdresRecord() {
         alert("in recordToevoegen()");
         
         formulierTonen();
+    }
+    
+    this.inHTMLzetten=function() {
+        var naam = document.forms["Formulier"]["voornaam"].value+" "+document.forms["Formulier"]["voorvoegsel"].value+" "+document.forms["Formulier"]["achternaam"].value;
+        
+        var div_node=document.createElement("div");
+        div_node.className="eenAdres";
+        var p_node=document.createElement("p");
+        div_node.appendChild(p_node);
+        var textnode=document.createTextNode(naam);
+        p_node.appendChild(textnode);
+        
+        var telefoon = document.forms["Formulier"]["telefoonnummer"].value;
+        p_node = document.createElement("p");
+        div_node.appendChild(p_node);
+        textnode = document.createTextNode(telefoon);
+        p_node.appendChild(textnode);
+        
+        var mobiel = document.forms["Formulier"]["mobielnummer"].value;
+        p_node = document.createElement("p");
+        div_node.appendChild(p_node);
+        textnode = document.createTextNode(mobiel);
+        p_node.appendChild(textnode);
+        
+        var email = document.forms["Formulier"]["email"].value;
+        p_node = document.createElement("p");
+        div_node.appendChild(p_node);
+        textnode = document.createTextNode(email);
+        p_node.appendChild(textnode);
+        
+        var website = document.forms["Formulier"]["website"].value;
+        p_node = document.createElement("p");
+        div_node.appendChild(p_node);
+        textnode = document.createTextNode(website);
+        p_node.appendChild(textnode);
+        
+        var straatLocatie = document.forms["Formulier"]["straatlocatie"].value;
+        p_node = document.createElement("p");
+        div_node.appendChild(p_node);
+        textnode = document.createTextNode(straatLocatie);
+        p_node.appendChild(textnode);
+        
+        var postcode = document.forms["Formulier"]["postcode"].value;
+        var plaats = document.forms["Formulier"]["plaats"].value;
+        p_node = document.createElement("p");
+        div_node.appendChild(p_node);
+        textnode = document.createTextNode(postcode+" "+plaats);
+        p_node.appendChild(textnode);
+        
+        var land = document.forms["Formulier"]["land"].value;
+        p_node = document.createElement("p");
+        div_node.appendChild(p_node);
+        textnode = document.createTextNode(land);
+        p_node.appendChild(textnode);
+        
+        document.getElementById("adressenContainer").appendChild(div_node);
+        
+        formulierVerbergen();    
     }
     
     this.recordMuteren=function() {
@@ -69,17 +127,17 @@ function startAdresboek() {
 
 function initialiseren() {
     adres = new AdresRecord();
-    adres.vulRecord("Agus",
-                   "Judistira",
-                   "",
-                   "050-3113638",
-                   "06-30478568",
-                   "am.judistira@telfort.nl",
+    adres.vulRecord("Voornaam",
+                   "Achternaam",
+                   "voorvoegsel",
+                   "123-1234567",
+                   "06-12345678",
+                   "iemand@provider.nl",
                    "www.website.nl",
-                   "Dorus Rijkersstraat",
-                   "2A",
-                   "9726 JP",
-                   "Groningen",
+                   "Grote Straat",
+                   "99c",
+                   "9999 XZ",
+                   "BigCity",
                    "Nederland");
     
     var elem = document.getElementsByClassName("eenAdres");
@@ -97,8 +155,7 @@ function initialiseren() {
 
 function formulierTonen() {
    
-    document.getElementById("mutatieFormulier").style.display = "block";
-    
+    document.getElementById("mutatieFormulier").style.display = "flex";
 }
 
 function formulierVerbergen() {
