@@ -70,7 +70,7 @@ input{
     border-radius: 1vw;
 }
 
-#mutatieFormulier{
+#invoerFormulier, #mutatieFormulier {
     display: none;
     width: 60vw;
     height: 40vw;
@@ -90,10 +90,12 @@ input{
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);    
 }
+
 #formButtons {
     display: flex;
     flex-direction: row;
     align-items: center;
     vertical-align:middle;
     justify-content: space-around;
+    border-top: 50px;
 }
