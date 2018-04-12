@@ -207,8 +207,8 @@ body {
 .eenAdres{
     font-size: calc(12px + 0.7vw);
     display: inline-block;
-    width=30vw;
-    height=30vw;
+    width: 30vw;
+    height: 30vw;
     padding: 1vw;
     background-color: azure;
     border:1px solid black;
